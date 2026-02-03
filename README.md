@@ -1,2 +1,2 @@
 # Treinos e estudos
-meus treinos e estudos de programação, principalmente web
+Esse repositório é só para salvar meus treinos e estudos de programação com linguagens variadas, mas principalmente programação web
