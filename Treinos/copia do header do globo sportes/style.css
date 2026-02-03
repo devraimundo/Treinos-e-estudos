@@ -1,0 +1,116 @@
+@charset "UTF-8";
+
+:root
+{
+    --cor-base: rgb(3, 170, 72);
+    --cor-secundaria: rgb(255, 255, 255);
+    --cor-texto: white;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(249, 249, 249);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*Todo o header da pagina*/
+
+/* section dos nomes dos outros sites Globo*/
+#sites-globo ul{
+    background-color: var(--cor-secundaria);
+    font-weight: 500;
+    font-size: 1rem;
+    display: flex;
+    justify-content: start;
+    gap: 1.5rem;
+    list-style-type: none;
+    padding: 0.8rem;
+}
+
+#sites-globo ul li a{
+    text-decoration: none;
+    color: rgb(252, 3, 52);
+}
+
+#sites-globo ul li a:hover{
+    text-decoration: underline rgb(12, 121, 17);
+}
+
+/* div da header principal*/
+#header-prin{
+    background-color: var(--cor-base);
+    color: var(--cor-texto);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#header-prin img{ 
+    width: 52px;
+    height: auto;
+    text-align: center;
+}
+
+#header-prin button, form{
+    font-size: 1rem;
+}
+
+#header-prin button{
+    background-color: rgba(13, 66, 0, 0.205);
+    color: white;
+    font-family: var(--font-padrao);
+    font-weight: bolder;
+    padding: 0.7rem 1rem;
+    border-radius: 3rem;
+    border: none;
+    cursor: pointer;
+}
+
+#header-prin input[type="search"]{
+    font-family: var(--font-padrao);
+    background-color: rgba(13, 66, 0, 0.205);
+    font-weight: bolder;
+    padding: 0.7rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+}
+
+#header-prin input::placeholder{
+    font-family: var(--font-padrao);
+    color: white;
+    font-weight: bolder;
+}
+
+/* aside do cartola fc*/
+#cartola-fc{
+    background-color: var(--cor-secundaria);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+#cartola-fc img{
+    width: 108px;
+    height: auto;
+}
+
+#cartola-fc button{
+    background-color: white;
+    color: rgb(255, 104, 49);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    padding: 0.7rem 1.5rem 0.7rem 1.5rem;
+    border:solid 1px rgb(182, 182, 182);
+    cursor: pointer;
+}

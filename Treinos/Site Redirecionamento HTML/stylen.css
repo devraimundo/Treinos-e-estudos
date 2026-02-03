@@ -1,0 +1,40 @@
+@charset "UTF-8";
+*{
+    background-color: rgb(197, 248, 222);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+header{
+    text-align: center;
+    color: brown;
+}
+
+main p{
+    text-align: justify;
+     text-indent: 0.5em;
+}
+
+main a{
+    color: blue;
+    font-size: 1.1em;
+}
+
+main a:visited{
+    color: #8400ff;
+}
+
+main h2{
+    color: brown;
+}
+
+footer nav, a{
+    color: rgb(180, 75, 6);
+}
+
+footer nav, a:hover{
+    color: brown;
+}
+
+footer nav, a:visited{
+    color: #8400ff;
+}
