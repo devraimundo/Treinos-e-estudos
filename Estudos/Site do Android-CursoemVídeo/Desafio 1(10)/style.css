@@ -1,0 +1,156 @@
+@charset "UTF-8";
+@font-face {
+    font-family:'Idroid';
+    src: url(fontes/idroid.otf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2, h3{
+    font-family: Idroid;
+}
+
+body{
+    background-color: #80e9ac;
+    
+}
+header{
+    background-image: linear-gradient(#64e664, #07642e);
+    padding: 0.1em;
+    text-align: center;
+    color: #fafaff;
+}
+
+header{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+header h1{
+    font-size: 2.3em;
+}
+
+header p{
+    margin: center;
+    margin: 3em;
+}
+
+nav ul{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+nav a{
+    text-decoration: none;
+}
+nav a:link{
+    color: #fafaff;
+}
+
+nav a:hover{
+    color: #e2e46d;
+}
+
+
+
+#section_principal{
+    background-color: white;
+    padding: 0.1em;
+    color: #1e7c1e;
+    margin: auto;
+    width: 55%;
+    text-indent: 1em;
+    border-radius: 0px 0px 10px 10px;
+    padding: 1em;
+}
+
+
+section p{
+    color: black;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: left;
+    margin: 0.7em;
+    text-indent: 1.5em;
+}
+
+strong, .link{
+    color: #005825;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: left;
+    text-decoration: none;
+}
+
+mark{
+    background-color: rgba(43, 255, 0, 0.226);
+}
+
+.link{
+    font-weight: bold;
+}
+.link:hover{
+    color: #172ceb;
+    text-decoration: none;
+}
+
+.link::after{
+    content: " 🔗";
+    font-size: 1.3em;
+}
+
+.titulo_secao{
+    background-image: linear-gradient(to right, #5dff5d7c, #1e7c1e00 85%);
+
+}
+
+figure{
+    display: flex;
+    justify-content: center;
+    text-indent: 0em;
+}
+
+img{
+    width: min(1920px, 100%);
+}
+
+article{
+    background-color: #d7ffe8;
+    padding-bottom: 1em;
+    margin: 1.3em;
+}
+
+#extra{
+    font-family: sans-serif;
+    color: #fafaff;
+    background-color: #177e45;
+    padding: 1em;
+    border-radius: 20px 20px 0px 0px;
+}
+
+article{
+    border-radius: 20px;
+}
+
+#lista_check{
+    font-size: 1.2em;
+    list-style-type: "✔️";
+    columns: 2;
+    column-gap: 2em;
+    margin: 1em;
+}
+
+footer{
+    background-color: #07642e;
+    align-self: center;
+}
+
+footer p{
+    color: #fafaff;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 0.7em;
+    text-indent: 1.5em;
+}
