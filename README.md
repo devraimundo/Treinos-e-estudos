@@ -18,6 +18,6 @@ Esse repositório é só para salvar meus treinos e estudos de programação com
 <h2>Estudos</h2>
 <hr>
 
-<p>Site do Android-CursoemVídeo. Não está com a versão certa</p>
+<a href="https://devraimundo.github.io/Treinos-e-estudos/Estudos/Site%20do%20Android-CursoemV%C3%ADdeo/Desafio%201(10)/index.html">Site do Android-CursoemVídeo</a>
 
 <a href="https://devraimundo.github.io/Treinos-e-estudos/Estudos/Site%20de%20cordeis-CursoemV%C3%ADdeo/index.html">Site de cordéis-CursoemVídeo</a>
