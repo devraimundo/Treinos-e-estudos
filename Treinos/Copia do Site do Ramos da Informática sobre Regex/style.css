@@ -8,6 +8,10 @@
 :root{
     --cor-1: #fff;
     --cor-2: #000;
+    --cor-link: #48aee9;
+    --cor-fundo-2: #dadada;
+    --cor-fundo-code: #F1F1F1;
+    --card-apoio: #FAFAFA;
 }
 
 body{
@@ -22,7 +26,7 @@ header form{
 }
 
 a{
-    color: #48aee9;
+    color: var(--cor-link);
 }
 
 #pesquisar input{
@@ -41,7 +45,7 @@ header nav, header ul{
     justify-content: center;
     align-items: center;
     list-style: none;
-    padding-left: 3em;
+    gap: 3em;
 }
 
 header ul{
@@ -55,7 +59,7 @@ header nav a{
 }
 
 header nav a:hover{
-    text-decoration: underline #4DB2EC 3px;
+    text-decoration: underline var(--cor-link) 3px;
     text-underline-offset: 10px;
 }
 
@@ -65,7 +69,7 @@ header nav img{
 
 #capa-regex{
     background: #000000 url("midias/Nocoes-basicas-de-programacao.jpg") no-repeat left center;
-    width: 100%;
+    max-width: 100vw;
     background-size: cover;
     background-attachment: fixed;
 
@@ -84,8 +88,8 @@ header nav img{
     width: 40em;
     height: 32em;
     margin: 4em 0 0 9em;
-    padding: 2em 0 0 3em;
-    background-color: rgba(255, 255, 255, 0.781);
+    padding: 2.5em 0 0 3em;
+    background-color: #ffffffc7;
 }
 
 .web-geral{
@@ -93,7 +97,7 @@ header nav img{
     font-size: 1em;
 
     width: 14em;
-    background-color: rgb(27, 27, 27);
+    background-color: #1b1b1b;
     text-align: center;
 }
 
@@ -152,13 +156,11 @@ header nav img{
 }
 
 #compartilhar-top{
-    justify-self: center;
-    border: 3px solid rgb(173, 173, 173);
+    border: 3px solid var(--cor-fundo-2);
     margin: 1.5em 0 1.5em 0;
 }
 
 #compartilhar-buttom{
-    justify-content: left;
     padding-top: 2em;
 }
 
@@ -193,13 +195,18 @@ section > p{
     overflow-wrap: break-word;
 }
 
-.exemplo {
-    background-color: #f4f4f4; 
+.exemplo{
+    background-color: var(--cor-fundo-code); 
+}
+
+.code-tag, .exemplo-inline{
+    background-color: var(--cor-fundo-code);
+    padding: 0.2em;
 }
 
 fieldset {
-    border: 1px solid #dadada;
-    background-color: #FAFAFA;
+    border: 1px solid var(--cor-fundo-2);
+    background-color: var(--card-apoio);
     padding-left: 1em;
     border-radius: 7px;
 }
@@ -207,18 +214,15 @@ fieldset {
 .card-apoio{
     padding-bottom: 2em;
 }
+
 fieldset div{
     padding: 1em 0 1em 0;
 }
 
 legend{
-    background-color: #FAFAFA;
+    background-color: var(--card-apoio);
     font-size: 0.9em;
     padding: 0 10px 0 10px;
-}
-
-#card-apoio-buttom{
-    padding-bottom: 2em;
 }
 
 .confira-div p, .confira-div a{
@@ -227,10 +231,32 @@ legend{
 }
 
 #informatica{
-    border: 1px solid #dadada;
+    border: 1px solid var(--cor-fundo-2);
     padding: 1em;
 }
 
 #informatica p{
     max-width: 38em;
+}
+
+footer{
+    max-width: 800px;
+    margin: auto;
+    padding-bottom: 1em;
+}
+
+footer > p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1em;
+    padding: 1em 0 1em 0;
+}
+
+footer li{
+    font-size: 1.2em;
+    padding: 0 0 1em 0;
+}
+
+footer ul, footer ol{
+    padding-left: 1em;
+    overflow-wrap: break-word;
 }

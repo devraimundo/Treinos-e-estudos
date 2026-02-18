@@ -66,9 +66,11 @@
                             <li><abbr title="Telegram"><a href="#"><img src="midias/logos/compartilhe/telegram.png" alt="Icone do Telegram"></a></abbr></li>
                             <li><abbr title="Copy URL"><a href="#"><img src="midias/logos/compartilhe/compartilhar.png" alt="Icone de Copiar URL"></a></abbr></li>
                         </ul>
+
                 </div>
 
                     <p>Ao lidar com HTML em desenvolvimento web, você pode se deparar com a necessidade de analisar, validar ou manipular tags HTML em strings de código. Uma dúvida comum abordada no tópico do Stack Overflow (<a href="#">Regex match open tags except XHTML self-contained tags</a>) é como usar expressões regulares para capturar tags abertas enquanto ignora tags auto-fechadas.</p>
+
                     <p>Embora as regex sejam ferramentas poderosas, é essencial entender seus limites quando aplicadas a linguagens complexas como HTML. Neste artigo, abordaremos o problema, seus desafios e exploraremos algumas soluções eficientes. Também discutiremos alternativas modernas e práticas recomendadas.</p>
 
                 <section>
@@ -76,16 +78,16 @@
                     <h2>Por Que Usar Regex Para HTML É Complicado?</h2>
                     <p>O HTML não é uma linguagem regular. Isso significa que, em sua forma mais básica, ele não pode ser analisado completamente por expressões regulares, devido à necessidade de emparelhar elementos de forma aninhada. Por exemplo, a regex:</p>
 
-                    <code class="exemplo">&lt;([^&gt;\s]+)([^&gt;]*)&gt;</code>
+                    <div class="exemplo-inline"><code>>&lt;([^&gt;\s]+)([^&gt;]*)&gt;</code></div>
 
-                    <p>Pode capturar tags abertas, mas não pode determinar a relação hierárquica ou validar o fechamento correto de tags como <code>&lt;div&gt</code>; dentro de <code>&lt;span&gt;</code></p>
+                    <p>Pode capturar tags abertas, mas não pode determinar a relação hierárquica ou validar o fechamento correto de tags como <code class="code-tag">&lt;div&gt</code>; dentro de <code class="code-tag">&lt;span&gt;</code></p>
                 
                     <p>Além disso:</p>
 
                     <ol>
                         <li><strong>Ambiguidade em Atributos:</strong> As tags podem conter atributos com valores delimitados por aspas simples, duplas ou mesmo sem aspas.</li>
 
-                            <li><strong>Tags Auto-Fechadas:</strong> Tags como &lt;img&gt; ou &lt;input&gt; podem ser auto-fechadas dependendo da especificação HTML/XHTML usada.</li>
+                            <li><strong>Tags Auto-Fechadas:</strong> Tags como <code class="code-tag">&lt;img&gt;</code> ou <code class="code-tag">&lt;input&gt;</code> podem ser auto-fechadas dependendo da especificação HTML/XHTML usada.</li>
                             
                             <li><strong>Espaços e Maiúsculas:</strong> Tags HTML são insensíveis a maiúsculas/minúsculas, e espaços extras são comuns.</li>
                     </ol>
@@ -100,43 +102,39 @@
                     <p>O desafio é criar uma regex que:</p>
 
                     <aside class="card-apoio">
-
-                        <form action="">
-
-                            <fieldset>
+                        <form action="" role="representation">
+                            <fieldset role="presentation">
                                 <legend>Apoie a Ramos da Informática</legend>
 
                                 <div>
-                                    <p>☕ <a href="#" class="apoio-titulo">Café com Deus Pai Vol. 6 - 2026: Porções Diárias de Amor</a> oferece 365 mensagens diárias que convidam você a um encontro íntimo com Deus, fortalecendo a fé e nutrindo a alma.</p>
+                                    <p>☕ <a href="#" class="apoio-titulo"><strong>Café com Deus Pai Vol. 6 - 2026: Porções Diárias de Amor</strong></a> oferece 365 mensagens diárias que convidam você a um encontro íntimo com Deus, fortalecendo a fé e nutrindo a alma.</p>
                                 </div>
 
-                                <div>
-                                    <p>👉 <a href="" class="confira-na-amazon">Confira na Amazon</a> .</p>
+                                <div class="confira-div">
+                                    <p>👉 <a href="" class="confira-na">Confira na Amazon .</a></p>
+
+                                    <p>Nas compras você contribui para manter o site no ar.</p>
                                 </div>
-
-                                <p>Nas compras você contribui para manter o site no ar.</p>
-
                             </fieldset>
-
                         </form>
+                </aside>
 
-                    </aside>
 
                     <ol>
-                        <li>Identifique todas as tags abertas, como <code>&lt;div&gt;</code> e <code>&lt;p&gt;</code>.</li>
+                        <li>Identifique todas as tags abertas, como <code class="code-tag">&lt;div&gt;</code> e <code class="code-tag">&lt;p&gt;</code>.</li>
 
-                        <li>Ignore tags auto-fechadas, como <code>&lt;img /&gt;</code>, <code>&lt;br /&gt;</code>.</li>
+                        <li>Ignore tags auto-fechadas, como <code class="code-tag">&lt;img /&gt;</code>, <code class="code-tag">&lt;br /&gt;</code>.</li>
                     </ol>
 
                     <h3>Regex Para Capturar Tags Abertas</h3>
                     <p>Abaixo está uma regex que captura tags abertas básicas, mas ignora auto-fechadas:</p>
-                    <code class="exemplo">&lt;([a-zA-Z]+)(?=[^&gt;]*[^/]&gt;)</code>
+                    <div class="exemplo-inline"><code>&lt;([a-zA-Z]+)(?=[^&gt;]*[^/]&gt;)</code></div>
                     
                     <h3>Como Funciona</h3>
 
                     <ol>
-                        <li><code>&lt;([a-zA-Z]+)</code>: Captura o nome da tag (letras de A a Z, maiúsculas ou minúsculas).</li>
-                        <li><code>(?=[^&gt;]*[^/]&gt;)</code>: Garante que o caractere <code>&gt;</code> não seja precedido por <code>/</code>, ignorando auto-fechadas.</li>
+                        <li><code class="code-tag">&lt;([a-zA-Z]+)</code>: Captura o nome da tag (letras de A a Z, maiúsculas ou minúsculas).</li>
+                        <li><code class="code-tag">(?=[^&gt;]*[^/]&gt;)</code>: Garante que o caractere <code class="code-tag">&gt;</code> não seja precedido por <code class="code-tag">/</code>, ignorando auto-fechadas.</li>
                     </ol>
 
                     <h4>Exemplo de Uso</h4>
@@ -164,12 +162,13 @@
                     <p>Embora funcional, essa solução apresenta limitações:</p>
 
                     <ol>
-                        <li>Não valida o aninhamento correto (ex.: <code>&lt;div&gt;&lt;p&gt;&lt;/div&gt;&lt;/p&gt;</code>).</li>
+                        <li>Não valida o aninhamento correto (ex.: <code class="code-tag">&lt;div&gt;&lt;p&gt;&lt;/div&gt;&lt;/p&gt;</code>).</li>
                         <li>Não diferencia XHTML de HTML5, o que pode causar problemas em casos ambíguos.</li>
                         <li>Pode falhar ao lidar com atributos complexos ou strings malformadas.</li>
                     </ol>
 
                 </section>
+
                 <section>
 
                     <h2>Alternativas Modernas Para Manipular HTML</h2>
@@ -319,12 +318,10 @@
 
                 </section>
                 
-                <aside class="card-apoio" id="card-apoio-buttom">
-
+                <aside class="card-apoio">
                     <form action="" role="representation">
                         <fieldset role="presentation">
                             <legend>Apoie a Ramos da Informática</legend>
-
                             <div>
                                 <p>☕ <a href="#" class="apoio-titulo"><strong>Café com Deus Pai Vol. 6 - 2026: Porções Diárias de Amor</strong></a> oferece 365 mensagens diárias que convidam você a um encontro íntimo com Deus, fortalecendo a fé e nutrindo a alma.</p>
                             </div>
@@ -334,44 +331,43 @@
 
                                 <p>Nas compras você contribui para manter o site no ar.</p>
                             </div>
-                            
-
                         </fieldset>
-
                     </form>
-
                 </aside>
-
-                <a href="">Ramos de Souza J</a>
-
-                <div class="compartilhar" id="compartilhar-buttom">
-                    
-                    <h5>COMPARTILHE</h5>
-
-                        <ul>
-                            <li><abbr title="Facebook"><a href="#"><img src="midias/logos/compartilhe/facebook.png" alt="Icone do Facebook"></a></abbr></li>
-                            <li><abbr title="Twitter"><a href="#"><img src="midias/logos/compartilhe/twitter.png" alt="Icone do Twitter"></a></abbr></li>
-                            <li><abbr title="Pinterest"><a href="#"><img src="midias/logos/compartilhe/pinterest.png" alt="Icone do Pinterest"></a></abbr></li>
-                            <li><abbr title="WhatsApp"><a href="#"><img src="midias/logos/compartilhe/whatsapp.png" alt="Icone do WhatsApp"></a></abbr></li>
-                            <li><abbr title="LinkedIn"><a href="#"><img src="midias/logos/compartilhe/linkedin.png" alt="Icone do LinkedIn"></a></abbr></li>
-                            <li><abbr title="Telegram"><a href="#"><img src="midias/logos/compartilhe/telegram.png" alt="Icone do Telegram"></a></abbr></li>
-                            <li><abbr title="Copy URL"><a href="#"><img src="midias/logos/compartilhe/compartilhar.png" alt="Icone de Copiar URL"></a></abbr></li>
-                        </ul>
-
-                </div>
-
-                <div id="informatica">
-
-                    <h2><a href="#">Ramos da Informática</a></h2>
-                    <p><a href="#">https://ramosdainformatica.com.br</a></p>
-                    <p>Ramos da Informática é um hub de comunidade sobre linguagens de programação, banco de dados, DevOps, Internet das Coisas, tecnologia da indústria 4.0, Cyber Segurança e Startups.</p>
-                    
-                </div>
-
+                
             </section>
 
         </article>
 
     </main>
+
+    <footer>
+        <a href="">Ramos de Souza J</a>
+
+        <div class="compartilhar" id="compartilhar-buttom">
+            
+            <h5>COMPARTILHE:</h5>
+
+                <ul>
+                    <li><abbr title="Facebook"><a href="#"><img src="midias/logos/compartilhe/facebook.png" alt="Icone do Facebook"></a></abbr></li>
+                    <li><abbr title="Twitter"><a href="#"><img src="midias/logos/compartilhe/twitter.png" alt="Icone do Twitter"></a></abbr></li>
+                    <li><abbr title="Pinterest"><a href="#"><img src="midias/logos/compartilhe/pinterest.png" alt="Icone do Pinterest"></a></abbr></li>
+                    <li><abbr title="WhatsApp"><a href="#"><img src="midias/logos/compartilhe/whatsapp.png" alt="Icone do WhatsApp"></a></abbr></li>
+                    <li><abbr title="LinkedIn"><a href="#"><img src="midias/logos/compartilhe/linkedin.png" alt="Icone do LinkedIn"></a></abbr></li>
+                    <li><abbr title="Telegram"><a href="#"><img src="midias/logos/compartilhe/telegram.png" alt="Icone do Telegram"></a></abbr></li>
+                    <li><abbr title="Copy URL"><a href="#"><img src="midias/logos/compartilhe/compartilhar.png" alt="Icone de Copiar URL"></a></abbr></li>
+                </ul>
+
+        </div>
+
+        <div id="informatica">
+
+            <h2><a href="#">Ramos da Informática</a></h2>
+            <p><a href="#">https://ramosdainformatica.com.br</a></p>
+            <p>Ramos da Informática é um hub de comunidade sobre linguagens de programação, banco de dados, DevOps, Internet das Coisas, tecnologia da indústria 4.0, Cyber Segurança e Startups.</p>
+            
+        </div>
+
+    </footer>
 </body>
 </html>
