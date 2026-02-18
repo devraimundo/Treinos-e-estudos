@@ -2,7 +2,6 @@
 Esse repositório é só para salvar meus treinos e estudos de programação com linguagens variadas, mas principalmente programação web
 
 <h2>Treinos</h2>
-<hr>
 
 <a href="https://devraimundo.github.io/Treinos-e-estudos/Treinos/Teste%20de%20Box%20Level/index.html">Teste de Box Level</a>
 
@@ -13,10 +12,11 @@ Esse repositório é só para salvar meus treinos e estudos de programação com
 <a href="https://devraimundo.github.io/Treinos-e-estudos/Treinos/copia%20do%20header%20do%20globo%20sportes/index.html">Copia do header do Globo Sportes</a>
 
 <a href="https://devraimundo.github.io/Treinos-e-estudos/Treinos/Parallaxs%20simples/Parallax%201/index.html">Treino de parallax simples</a>
+
+<a href="https://devraimundo.github.io/Treinos-e-estudos/Treinos/Copia%20do%20Site%20do%20Ramos%20da%20Inform%C3%A1tica%20sobre%20Regex/index.html">Copia do Site do Ramos da Informática sobre Regex</a>
 <hr>
 
 <h2>Estudos</h2>
-<hr>
 
 <a href="https://devraimundo.github.io/Treinos-e-estudos/Estudos/Site%20do%20Android-CursoemV%C3%ADdeo/Desafio%201(10)/index.html">Site do Android-CursoemVídeo</a>
 
