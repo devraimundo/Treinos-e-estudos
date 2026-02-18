@@ -9,267 +9,369 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
+
     <header>
+
         <form action="#" method="get" autocomplete="off">
+
             <div id="pesquisar">
                 <label for="idpesquisa">Pesquise:</label>
                 <input type="search" name="pesquisa" id="idpesquisa" role="search" placeholder="Expanda seu conhecimento">
             </div>
+
         </form>
+
         <nav>
+
             <a href="#"><img src="midias/logos/logo-menor.png" alt=""></a>
             <ul>
                 <li><a href="#">Newsletter Devs</a></li>
                 <li><a href="#">Biblioteca Técnica</a></li>
                 <li><a href="#">Fale com Ramos</a></li>
             </ul>
+
         </nav>
+
     </header>
 
     <main>
-        <article id="artigo-regex">         
+
+        <article id="artigo-regex">       
+
             <div class="capa" id="capa-regex">
+
                 <div class="titulo">
+
                     <div class="web-geral"><a href="#" >Desenvolvimento Web Geral</a></div>
-                    <h1>Regex para HTML: <br>Como Capturar Tags <br>Abertas e Ignorar <br>Auto-Fechadas</h1>
-                    <p>Descubra como usar regex para capturar <br>tags abertas em HTML enquanto ignora <br>auto-fechadas. Explore hacks avançados, <br>limitações e alternativas modernas como <br>DOMParser, Cheerio e BeautifulSoup.</p>
+
+                    <h1>Regex para HTML: Como Capturar Tags Abertas e Ignorar Auto-Fechadas</h1>
+                    <p>Descubra como usar regex para capturar tags abertas em HTML enquanto ignora auto-fechadas. Explore hacks avançados, limitações e alternativas modernas como DOMParser, Cheerio e BeautifulSoup.</p>
+
                 </div>
+
             </div>
 
             <section class="conteudo">
+
                 <div class="compartilhar" id="compartilhar-top">
-                    <h3>COMPARTILHE:</h3>
+
+                    <h5>COMPARTILHE:</h5>
+
                         <ul>
-                            <li><abbr title="Facebook"><a href="#"><img src="midias/logos/compartilhe/facebook.png" alt=""></a></abbr></li>
-                            <li><abbr title="Twitter"><a href="#"><img src="midias/logos/compartilhe/twitter.png" alt=""></a></abbr></li>
-                            <li><abbr title="Pinterest"><a href="#"><img src="midias/logos/compartilhe/pinterest.png" alt=""></a></abbr></li>
-                            <li><abbr title="WhatsApp"><a href="#"><img src="midias/logos/compartilhe/whatsapp.png" alt=""></a></abbr></li>
-                            <li><abbr title="LinkedIn"><a href="#"><img src="midias/logos/compartilhe/linkedin.png" alt=""></a></abbr></li>
-                            <li><abbr title="Telegram"><a href="#"><img src="midias/logos/compartilhe/telegram.png" alt=""></a></abbr></li>
-                            <li><abbr title="Copy URL"><a href="#"><img src="midias/logos/compartilhe/compartilhar.png" alt=""></a></abbr></li>
+                            <li><abbr title="Facebook"><a href="#"><img src="midias/logos/compartilhe/facebook.png" alt="Icone do Facebook"></a></abbr></li>
+                            <li><abbr title="Twitter"><a href="#"><img src="midias/logos/compartilhe/twitter.png" alt="Icone do Twitter"></a></abbr></li>
+                            <li><abbr title="Pinterest"><a href="#"><img src="midias/logos/compartilhe/pinterest.png" alt="Icone do Pinterest"></a></abbr></li>
+                            <li><abbr title="WhatsApp"><a href="#"><img src="midias/logos/compartilhe/whatsapp.png" alt="Icone do WhatsApp"></a></abbr></li>
+                            <li><abbr title="LinkedIn"><a href="#"><img src="midias/logos/compartilhe/linkedin.png" alt="Icone do LinkedIn"></a></abbr></li>
+                            <li><abbr title="Telegram"><a href="#"><img src="midias/logos/compartilhe/telegram.png" alt="Icone do Telegram"></a></abbr></li>
+                            <li><abbr title="Copy URL"><a href="#"><img src="midias/logos/compartilhe/compartilhar.png" alt="Icone de Copiar URL"></a></abbr></li>
                         </ul>
                 </div>
+
                     <p>Ao lidar com HTML em desenvolvimento web, você pode se deparar com a necessidade de analisar, validar ou manipular tags HTML em strings de código. Uma dúvida comum abordada no tópico do Stack Overflow (<a href="#">Regex match open tags except XHTML self-contained tags</a>) é como usar expressões regulares para capturar tags abertas enquanto ignora tags auto-fechadas.</p>
                     <p>Embora as regex sejam ferramentas poderosas, é essencial entender seus limites quando aplicadas a linguagens complexas como HTML. Neste artigo, abordaremos o problema, seus desafios e exploraremos algumas soluções eficientes. Também discutiremos alternativas modernas e práticas recomendadas.</p>
+
                 <section>
+
                     <h2>Por Que Usar Regex Para HTML É Complicado?</h2>
                     <p>O HTML não é uma linguagem regular. Isso significa que, em sua forma mais básica, ele não pode ser analisado completamente por expressões regulares, devido à necessidade de emparelhar elementos de forma aninhada. Por exemplo, a regex:</p>
+
                     <code class="exemplo">&lt;([^&gt;\s]+)([^&gt;]*)&gt;</code>
+
                     <p>Pode capturar tags abertas, mas não pode determinar a relação hierárquica ou validar o fechamento correto de tags como <code>&lt;div&gt</code>; dentro de <code>&lt;span&gt;</code></p>
                 
                     <p>Além disso:</p>
+
                     <ol>
                         <li><strong>Ambiguidade em Atributos:</strong> As tags podem conter atributos com valores delimitados por aspas simples, duplas ou mesmo sem aspas.</li>
+
                             <li><strong>Tags Auto-Fechadas:</strong> Tags como &lt;img&gt; ou &lt;input&gt; podem ser auto-fechadas dependendo da especificação HTML/XHTML usada.</li>
+                            
                             <li><strong>Espaços e Maiúsculas:</strong> Tags HTML são insensíveis a maiúsculas/minúsculas, e espaços extras são comuns.</li>
                     </ol>
+
                     <p>Portanto, qualquer manipulação ou análise profunda requer soluções mais robustas, como <strong>parsers HTML</strong>.</p>
+
                 </section>
+
                 <section>
+
                     <h2>O Problema: Capturar Tags Abertas (Exceto Auto-Fechadas)</h2>
                     <p>O desafio é criar uma regex que:</p>
+
                     <aside class="card-apoio">
+
                         <form action="">
+
                             <fieldset>
                                 <legend>Apoie a Ramos da Informática</legend>
+
                                 <div>
                                     <p>☕ <a href="#" class="apoio-titulo">Café com Deus Pai Vol. 6 - 2026: Porções Diárias de Amor</a> oferece 365 mensagens diárias que convidam você a um encontro íntimo com Deus, fortalecendo a fé e nutrindo a alma.</p>
                                 </div>
+
                                 <div>
                                     <p>👉 <a href="" class="confira-na-amazon">Confira na Amazon</a> .</p>
                                 </div>
+
                                 <p>Nas compras você contribui para manter o site no ar.</p>
+
                             </fieldset>
+
                         </form>
+
                     </aside>
+
                     <ol>
                         <li>Identifique todas as tags abertas, como <code>&lt;div&gt;</code> e <code>&lt;p&gt;</code>.</li>
+
                         <li>Ignore tags auto-fechadas, como <code>&lt;img /&gt;</code>, <code>&lt;br /&gt;</code>.</li>
                     </ol>
+
                     <h3>Regex Para Capturar Tags Abertas</h3>
                     <p>Abaixo está uma regex que captura tags abertas básicas, mas ignora auto-fechadas:</p>
                     <code class="exemplo">&lt;([a-zA-Z]+)(?=[^&gt;]*[^/]&gt;)</code>
+                    
                     <h3>Como Funciona</h3>
+
                     <ol>
                         <li><code>&lt;([a-zA-Z]+)</code>: Captura o nome da tag (letras de A a Z, maiúsculas ou minúsculas).</li>
                         <li><code>(?=[^&gt;]*[^/]&gt;)</code>: Garante que o caractere <code>&gt;</code> não seja precedido por <code>/</code>, ignorando auto-fechadas.</li>
                     </ol>
+
                     <h4>Exemplo de Uso</h4>
+
                     <pre>
-                        <code class="exemplo">
-                            const regex = /&lt;([a-zA-Z]+)(?=[^&gt;]*[^/]&gt;)/g;
-                            const html = `
-                            &lt;div&gt;
-                                &lt;p&gt;Texto&lt;/p&gt;
-                                &lt;img src="imagem.jpg" /&gt;
-                                &lt;br /&gt;
-                                &lt;h1&gt;Título&lt;/h1&gt;
-                            &lt;/div&gt;
-                            `;
-                            const matches = [...html.matchAll(regex)];
-                            console.log(matches.map(match => match[1]));
-                            // Saída: ['div', 'p', 'h1']
-                        </code>
+                        <div class="exemplo">
+                            <code>
+                                const regex = /&lt;([a-zA-Z]+)(?=[^&gt;]*[^/]&gt;)/g;
+                                const html = `
+                                &lt;div&gt;
+                                    &lt;p&gt;Texto&lt;/p&gt;
+                                    &lt;img src="imagem.jpg" /&gt;
+                                    &lt;br /&gt;
+                                    &lt;h1&gt;Título&lt;/h1&gt;
+                                &lt;/div&gt;
+                                `;
+                                const matches = [...html.matchAll(regex)];
+                                console.log(matches.map(match => match[1]));
+                                // Saída: ['div', 'p', 'h1']
+                            </code>
+                        </div>
                     </pre>
+
                     <h3>Limitações da Regex</h3>
                     <p>Embora funcional, essa solução apresenta limitações:</p>
+
                     <ol>
                         <li>Não valida o aninhamento correto (ex.: <code>&lt;div&gt;&lt;p&gt;&lt;/div&gt;&lt;/p&gt;</code>).</li>
                         <li>Não diferencia XHTML de HTML5, o que pode causar problemas em casos ambíguos.</li>
                         <li>Pode falhar ao lidar com atributos complexos ou strings malformadas.</li>
                     </ol>
+
                 </section>
                 <section>
+
                     <h2>Alternativas Modernas Para Manipular HTML</h2>
                     <p>Expressões regulares não são a ferramenta ideal para manipular HTML. Bibliotecas modernas oferecem soluções robustas e confiáveis. Aqui estão algumas alternativas:</p>
+
                     <h3>1. Usando DOMParser no Navegador</h3>
                     <p>Se você está trabalhando no front-end, o DOMParser pode transformar strings HTML em objetos manipuláveis:</p>
+
                     <pre>
-                        <code class="exemplo">
-                            const parser = new DOMParser();
-                            const html = `
-                            &lt;div&gt;
-                                &lt;p&gt;Texto&lt;/p&gt;
-                                &lt;img src="imagem.jpg" /&gt;
-                                &lt;br /&gt;
-                                &lt;h1&gt;Título&lt;/h1&gt;
-                            &lt;/div&gt;
-                            `;
-                            const doc = parser.parseFromString(html, 'text/html');
-                            const tags = [...doc.querySelectorAll('*')]
-                            .filter(el => el.tagName !== 'IMG' && el.tagName !== 'BR')
-                            .map(el => el.tagName.toLowerCase());
-                            console.log(tags);
-                            // Saída: ['div', 'p', 'h1']
-                        </code>
+                        <div class="exemplo">
+                            <code>
+                                const parser = new DOMParser();
+                                const html = `
+                                &lt;div&gt;
+                                    &lt;p&gt;Texto&lt;/p&gt;
+                                    &lt;img src="imagem.jpg" /&gt;
+                                    &lt;br /&gt;
+                                    &lt;h1&gt;Título&lt;/h1&gt;
+                                &lt;/div&gt;
+                                `;
+                                const doc = parser.parseFromString(html, 'text/html');
+                                const tags = [...doc.querySelectorAll('*')]
+                                .filter(el => el.tagName !== 'IMG' && el.tagName !== 'BR')
+                                .map(el => el.tagName.toLowerCase());
+                                console.log(tags);
+                                // Saída: ['div', 'p', 'h1']
+                            </code>
+                        </div>
                     </pre>
+
                     <h3>2. Usando Cheerio (Node.js)</h3>
                     <p>Cheerio é uma biblioteca inspirada no jQuery para manipulação de HTML no back-end:</p>
+
                     <pre>
-                        <code class="exemplo">
-                            const cheerio = require('cheerio');
-                            const html = `
-                            &lt;div&gt;
-                                &lt;p&gt;Texto&lt;/p&gt;
-                                &lt;img src="imagem.jpg" /&gt;
-                                &lt;br /&gt;
-                                &lt;h1&gt;Título&lt;/h1&gt;
-                            &lt;/div&gt;
-                            `;
-                            const $ = cheerio.load(html);
-                            const tags = $('*')
-                            .not('img, br')
-                           section .map((i, el) => el.tagName)
-                            .get();
-                            console.log(tags);
-                            // Saída: ['div', 'p', 'h1']
-                        </code>
+                        <div class="exemplo">
+                            <code>
+                                const cheerio = require('cheerio');
+                                const html = `
+                                &lt;div&gt;
+                                    &lt;p&gt;Texto&lt;/p&gt;
+                                    &lt;img src="imagem.jpg" /&gt;
+                                    &lt;br /&gt;
+                                    &lt;h1&gt;Título&lt;/h1&gt;
+                                &lt;/div&gt;
+                                `;
+                                const $ = cheerio.load(html);
+                                const tags = $('*')
+                                .not('img, br')
+                               section .map((i, el) => el.tagName)
+                                .get();
+                                console.log(tags);
+                                // Saída: ['div', 'p', 'h1']
+                            </code>
+                        </div>
                     </pre>
+
                     <h3>3. Usando BeautifulSoup (Python)</h3>
                     <p>Para desenvolvedores Python, a biblioteca BeautifulSoup é excelente para parsing de HTML:</p>
+
                     <pre>
-                        <code class="exemplo">
-                            from bs4 import BeautifulSoup
-                            const html = """
-                            &lt;div&gt;
-                                &lt;p&gt;Texto&lt;/p&gt;
-                                &lt;img src="imagem.jpg" /&gt;
-                                &lt;br /&gt;
-                                &lt;h1&gt;Título&lt;/h1&gt;
-                            &lt;/div&gt;
-                            """
-                            soup = BeautifulSoup(html, 'html.parser')
-                            tags = [tag.name for tag in soup.find_all() if tag.name not in ['img', 'br']]
-                            print(tags)
-                            # Saída: ['div', 'p', 'h1']
-                        </code>
+                        <div class="exemplo">
+                            <code>
+                                from bs4 import BeautifulSoup
+                                const html = """
+                                &lt;div&gt;
+                                    &lt;p&gt;Texto&lt;/p&gt;
+                                    &lt;img src="imagem.jpg" /&gt;
+                                    &lt;br /&gt;
+                                    &lt;h1&gt;Título&lt;/h1&gt;
+                                &lt;/div&gt;
+                                """
+                                soup = BeautifulSoup(html, 'html.parser')
+                                tags = [tag.name for tag in soup.find_all() if tag.name not in ['img', 'br']]
+                                print(tags)
+                                # Saída: ['div', 'p', 'h1']
+                            </code>
+                        </div>
                     </pre>
+
                 </section>
+
                 <section>
                     <h2>Dicas Avançadas e Hacks</h2>
+
                     <h3>1. Combine Regex Com Parsers</h3>
                     <p>Se você precisar de validações preliminares ou processamento rápido antes de usar um parser, combine regex com ferramentas robustas. Por exemplo, use regex para remover trechos irrelevantes antes do parsing:</p>
+
                     <pre>
-                        <code class="exemplo">
-                            const cleanHtml = html.replace(/&lt;script.*?&gt;.*?&lt;\/script&gt;/g, '');
-                            const doc = parser.parseFromString(cleanHtml, 'text/html');
-                        </code>
+                        <div class="exemplo">
+                            <code>
+                                const cleanHtml = html.replace(/&lt;script.*?&gt;.*?&lt;\/script&gt;/g, '');
+                                const doc = parser.parseFromString(cleanHtml, 'text/html');
+                            </code>
+                        </div>
                     </pre>
+
                     <h3>2. Trabalhe Com Regex Dinâmica</h3>
                     <p>Se você precisa filtrar ou capturar tags específicas, crie regex dinâmicas com base em parâmetros:</p>
+
                     <pre>
-                        <code class="exemplo">
-                            function createTagRegex(tag) {
-                                return new RegExp(`&lt;${tag}[^&gt;]*&gt;(.*?)&lt;\/${tag}&gt;`, 'g');
-                            }
-                            const regex = createRegex('div');
-                            const content = '<div>Texto</div><span>Outro</span>';
-                            console.log(content.match(regex));
-                            // Saída: ['<div>Texto</div>']
-                        </code>
-                        <h3>3. Validação Simples de HTML</h3>
-                        <p>Se você quer apenas verificar se um HTML básico é válido, use regex como filtro inicial. Por exemplo:</p>
-                        <pre>
+                        <div class="exemplo">
+                            <code>
+
+                                function createTagRegex(tag) {
+                                    return new RegExp(`&lt;${tag}[^&gt;]*&gt;(.*?)&lt;\/${tag}&gt;`, 'g');
+                                }
+                                const regex = createRegex('div');
+                                const content = '&lt;div&gt;Texto&lt;/div&gt;&lt;span&gt;Outro&lt;/span&gt;';
+                                console.log(content.match(regex));
+                                // Saída: ['&lt;div&gt;Texto&lt;/div&gt;']
+                            </code>
+                        </div>
+                    </pre>
+
+                    <h3>3. Validação Simples de HTML</h3>
+                    <p>Se você quer apenas verificar se um HTML básico é válido, use regex como filtro inicial. Por exemplo:</p>
+
+                    <pre>
+                        <div class="exemplo">
                             <code>
                                 const isValidHtml = html => /^&lt;([a-zA-Z]+)&gt;.*&lt;\/\1&gt;$/.test(html);
                                 console.log(isValidHtml('&lt;div&gt;Texto&lt;/div&gt;')); // true
                                 console.log(isValidHtml('&lt;div&gt;&lt;p&gt;&lt;/div&gt;&lt;/p&gt;')); // false
                             </code>
-                        </pre>
-                        <h3>4. Evite Reinventar a Roda</h3>
-                        <p>Bibliotecas e ferramentas especializadas são otimizadas para lidar com HTML. Use-as sempre que possível:</p>
-                
-                        <ul>
-                            <li><strong>Lxml (Python):</strong> Análise robusta e rápida.</li>
-                            <li><strong>Jsoup (Java):</strong> Manipulação avançada de HTML.</li>
-                            <li><strong>HtmlAgilityPack (.NET):</strong> Ideal para C#.</li>
-                        </ul>
+                        </div>
+                    </pre>
+
+                    <h3>4. Evite Reinventar a Roda</h3>
+                    <p>Bibliotecas e ferramentas especializadas são otimizadas para lidar com HTML. Use-as sempre que possível:</p>
+            
+                    <ul>
+                        <li><strong>Lxml (Python):</strong> Análise robusta e rápida.</li>
+
+                        <li><strong>Jsoup (Java):</strong> Manipulação avançada de HTML.</li>
+
+                        <li><strong>HtmlAgilityPack (.NET):</strong> Ideal para C#.</li>
+                    </ul>
+
                 </section>
+
                 <section>
+
                     <h2>Conclusão</h2>
                     <p>Embora regex possa resolver problemas simples em HTML, é essencial compreender suas limitações. Para manipulações complexas, opte por parsers HTML especializados, como DOMParser, Cheerio ou BeautifulSoup. Eles oferecem soluções mais robustas e fáceis de implementar.</p>
+
                     <p>Por fim, a escolha da abordagem depende do contexto. Se regex for suficiente, use-a com cuidado, mas esteja preparado para escalar para ferramentas modernas conforme necessário. Ferramentas especializadas não apenas economizam tempo, mas também reduzem o risco de erros ao lidar com casos extremos ou aninhamentos complexos.</p>
+
                 </section>
                 
-                <aside class="card-apoio">
+                <aside class="card-apoio" id="card-apoio-buttom">
+
                     <form action="" role="representation">
                         <fieldset role="presentation">
                             <legend>Apoie a Ramos da Informática</legend>
+
                             <div>
-                                <p>☕ <a href="#" class="apoio-titulo">Café com Deus Pai Vol. 6 - 2026: Porções Diárias de Amor</a> oferece 365 mensagens diárias que convidam você a um encontro íntimo com Deus, fortalecendo a fé e nutrindo a alma.</p>
+                                <p>☕ <a href="#" class="apoio-titulo"><strong>Café com Deus Pai Vol. 6 - 2026: Porções Diárias de Amor</strong></a> oferece 365 mensagens diárias que convidam você a um encontro íntimo com Deus, fortalecendo a fé e nutrindo a alma.</p>
                             </div>
-                            <div>
-                                <p>👉 <a href="" class="confira-na">Confira na Amazon</a> .</p>
+
+                            <div class="confira-div">
+                                <p>👉 <a href="" class="confira-na">Confira na Amazon .</a></p>
+
+                                <p>Nas compras você contribui para manter o site no ar.</p>
                             </div>
-                            <p>Nas compras você contribui para manter o site no ar.</p>
+                            
+
                         </fieldset>
+
                     </form>
+
                 </aside>
+
+                <a href="">Ramos de Souza J</a>
+
+                <div class="compartilhar" id="compartilhar-buttom">
+                    
+                    <h5>COMPARTILHE</h5>
+
+                        <ul>
+                            <li><abbr title="Facebook"><a href="#"><img src="midias/logos/compartilhe/facebook.png" alt="Icone do Facebook"></a></abbr></li>
+                            <li><abbr title="Twitter"><a href="#"><img src="midias/logos/compartilhe/twitter.png" alt="Icone do Twitter"></a></abbr></li>
+                            <li><abbr title="Pinterest"><a href="#"><img src="midias/logos/compartilhe/pinterest.png" alt="Icone do Pinterest"></a></abbr></li>
+                            <li><abbr title="WhatsApp"><a href="#"><img src="midias/logos/compartilhe/whatsapp.png" alt="Icone do WhatsApp"></a></abbr></li>
+                            <li><abbr title="LinkedIn"><a href="#"><img src="midias/logos/compartilhe/linkedin.png" alt="Icone do LinkedIn"></a></abbr></li>
+                            <li><abbr title="Telegram"><a href="#"><img src="midias/logos/compartilhe/telegram.png" alt="Icone do Telegram"></a></abbr></li>
+                            <li><abbr title="Copy URL"><a href="#"><img src="midias/logos/compartilhe/compartilhar.png" alt="Icone de Copiar URL"></a></abbr></li>
+                        </ul>
+
+                </div>
+
+                <div id="informatica">
+
+                    <h2><a href="#">Ramos da Informática</a></h2>
+                    <p><a href="#">https://ramosdainformatica.com.br</a></p>
+                    <p>Ramos da Informática é um hub de comunidade sobre linguagens de programação, banco de dados, DevOps, Internet das Coisas, tecnologia da indústria 4.0, Cyber Segurança e Startups.</p>
+                    
+                </div>
+
             </section>
+
         </article>
+
     </main>
-
-    <footer>
-        <p><a href="">Ramos de Souza J</a></p>
-
-        <div class="compartilhar" id="compartilhar-buttom">
-            <h3>Comparti-lhe</h3>
-                <ul>
-                    <li><abbr title="Facebook"><a href="#"><img src="midias/logos/compartilhe/facebook.png" alt=""></a></abbr></li>
-                    <li><abbr title="Twitter"><a href="#"><img src="midias/logos/compartilhe/twitter.png" alt=""></a></abbr></li>
-                    <li><abbr title="Pinterest"><a href="#"><img src="midias/logos/compartilhe/pinterest.png" alt=""></a></abbr></li>
-                    <li><abbr title="WhatsApp"><a href="#"><img src="midias/logos/compartilhe/whatsapp.png" alt=""></a></abbr></li>
-                    <li><abbr title="LinkedIn"><a href="#"><img src="midias/logos/compartilhe/linkedin.png" alt=""></a></abbr></li>
-                    <li><abbr title="Telegram"><a href="#"><img src="midias/logos/compartilhe/telegram.png" alt=""></a></abbr></li>
-                    <li><abbr title="Copy URL"><a href="#"><img src="midias/logos/compartilhe/compartilhar.png" alt=""></a></abbr></li>
-                </ul>
-        </div>
-
-        <div>
-            <h2><a href="#">Ramos da Informática</a></h2>
-            <p><a href="#">https://ramosdainformatica.com.br</a></p>
-            <p>Ramos da Informática é um hub de comunidade sobre linguagens de programação, banco de dados, DevOps, Internet das Coisas, tecnologia da indústria 4.0, Cyber Segurança e Startups.</p>
-        </div>
-    </footer>
 </body>
 </html>

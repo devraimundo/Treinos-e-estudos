@@ -1,9 +1,8 @@
-*, a, ul, li{
+*, a, ul{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     text-decoration: none;
-    list-style: none;
 }
 
 :root{
@@ -15,11 +14,15 @@ body{
     background-color: var(--cor-1);
 }
 
-form{
+header form{
     display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 1.3em;
+}
+
+a{
+    color: #48aee9;
 }
 
 #pesquisar input{
@@ -49,6 +52,11 @@ header nav a{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: var(--cor-2);
     font-size: 1em;
+}
+
+header nav a:hover{
+    text-decoration: underline #4DB2EC 3px;
+    text-underline-offset: 10px;
 }
 
 header nav img{
@@ -99,6 +107,7 @@ header nav img{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 3em;
     font-weight: bolder;
+    max-width: 9em;
 }
 
 .titulo p{
@@ -106,12 +115,14 @@ header nav img{
     font-size: 1.7em;
     padding-top: 0.7em;
     padding-left: 1em;
+    max-width: 20em;
 }
 
-.compartilhar, ul{
+.compartilhar, .compartilhar ul{
     display: flex;
     justify-content: center;
     align-items: center;
+    list-style: none;
 }
 
 .compartilhar img{
@@ -121,14 +132,18 @@ header nav img{
 
 .compartilhar{
     display: flex;
-    justify-self: center;
+    
 
     width: 50em;
     padding: 0.5em;
     gap: 9em;
 }
 
-.compartilhar h3{
+.compartilhar li a:hover{
+    opacity: 50%;
+}
+
+.compartilhar h5{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: var(--cor-2);
     color: var(--cor-1);
@@ -137,20 +152,85 @@ header nav img{
 }
 
 #compartilhar-top{
+    justify-self: center;
     border: 3px solid rgb(173, 173, 173);
     margin: 1.5em 0 1.5em 0;
 }
 
 #compartilhar-buttom{
-    border: 3px solid rgb(173, 173, 173);
+    justify-content: left;
+    padding-top: 2em;
 }
 
 .conteudo{
-    padding: 0 9em 0 9em;
+    max-width: 800px;
+    margin: auto;
 }
 
 .conteudo h2{
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 2em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0.5em 0 0 0;
+}
+
+.conteudo h3{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 1em 0 1em 0;
+}
+
+section > p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1em;
+    padding: 1em 0 1em 0;
+}
+
+.conteudo li{
+    font-size: 1.2em;
+    padding: 0 0 1em 0;
+}
+
+.conteudo ul, .conteudo ol{
+    padding-left: 1em;
+    overflow-wrap: break-word;
+}
+
+.exemplo {
+    background-color: #f4f4f4; 
+}
+
+fieldset {
+    border: 1px solid #dadada;
+    background-color: #FAFAFA;
+    padding-left: 1em;
+    border-radius: 7px;
+}
+
+.card-apoio{
+    padding-bottom: 2em;
+}
+fieldset div{
+    padding: 1em 0 1em 0;
+}
+
+legend{
+    background-color: #FAFAFA;
+    font-size: 0.9em;
+    padding: 0 10px 0 10px;
+}
+
+#card-apoio-buttom{
+    padding-bottom: 2em;
+}
+
+.confira-div p, .confira-div a{
     padding-bottom: 0.5em;
+    padding-top: 0;
+}
+
+#informatica{
+    border: 1px solid #dadada;
+    padding: 1em;
+}
+
+#informatica p{
+    max-width: 38em;
 }
