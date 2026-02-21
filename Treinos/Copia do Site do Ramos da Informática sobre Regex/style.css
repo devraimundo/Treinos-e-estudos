@@ -5,6 +5,8 @@
     text-decoration: none;
 }
 
+/* Global CSS*/
+
 :root{
     --cor-1: #fff;
     --cor-2: #000;
@@ -136,6 +138,7 @@ header nav img{
 
 .compartilhar{
     display: flex;
+    margin: auto;
     
 
     width: 50em;
@@ -196,7 +199,9 @@ section > p{
 }
 
 .exemplo{
-    background-color: var(--cor-fundo-code); 
+    display: flex;
+    background-color: var(--cor-fundo-code);
+    min-width: 300px;
 }
 
 .code-tag, .exemplo-inline{

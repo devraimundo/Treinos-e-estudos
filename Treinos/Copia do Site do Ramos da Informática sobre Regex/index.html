@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Descubra como usar regex para capturar tags abertas em HTML enquanto ignora auto-fechadas. Explore hacks avançados, limitações e alternativas modernas como… Profissão: Engenheiro de Software">
-    <title>Regex para HTML: Como Capturar Tags Abertas e Ignorar Auto-Fechadas</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Regex para HTML: Como Capturar Tags Abertas e Ignorar Auto-Fechadas</title>
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sytles/responsividade.css">
+    
 </head>
 <body>
 
@@ -102,21 +105,19 @@
                     <p>O desafio é criar uma regex que:</p>
 
                     <aside class="card-apoio">
-                        <form action="" role="representation">
-                            <fieldset role="presentation">
-                                <legend>Apoie a Ramos da Informática</legend>
+                        <fieldset role="presentation">
+                            <legend>Apoie a Ramos da Informática</legend>
 
-                                <div>
-                                    <p>☕ <a href="#" class="apoio-titulo"><strong>Café com Deus Pai Vol. 6 - 2026: Porções Diárias de Amor</strong></a> oferece 365 mensagens diárias que convidam você a um encontro íntimo com Deus, fortalecendo a fé e nutrindo a alma.</p>
-                                </div>
+                            <div>
+                                <p>☕ <a href="#" class="apoio-titulo"><strong>Café com Deus Pai Vol. 6 - 2026: Porções Diárias de Amor</strong></a> oferece 365 mensagens diárias que convidam você a um encontro íntimo com Deus, fortalecendo a fé e nutrindo a alma.</p>
+                            </div>
 
-                                <div class="confira-div">
-                                    <p>👉 <a href="" class="confira-na">Confira na Amazon .</a></p>
+                            <div class="confira-div">
+                                <p>👉 <a href="" class="confira-na">Confira na Amazon .</a></p>
 
-                                    <p>Nas compras você contribui para manter o site no ar.</p>
-                                </div>
-                            </fieldset>
-                        </form>
+                                <p>Nas compras você contribui para manter o site no ar.</p>
+                            </div>
+                        </fieldset>
                 </aside>
 
 
@@ -139,23 +140,21 @@
 
                     <h4>Exemplo de Uso</h4>
 
-                    <pre>
-                        <div class="exemplo">
-                            <code>
-                                const regex = /&lt;([a-zA-Z]+)(?=[^&gt;]*[^/]&gt;)/g;
-                                const html = `
-                                &lt;div&gt;
-                                    &lt;p&gt;Texto&lt;/p&gt;
-                                    &lt;img src="imagem.jpg" /&gt;
-                                    &lt;br /&gt;
-                                    &lt;h1&gt;Título&lt;/h1&gt;
-                                &lt;/div&gt;
-                                `;
-                                const matches = [...html.matchAll(regex)];
-                                console.log(matches.map(match => match[1]));
-                                // Saída: ['div', 'p', 'h1']
-                            </code>
-                        </div>
+                    <pre class="exemplo">
+                        <code class="codigo">
+                            const regex = /&lt;([a-zA-Z]+)(?=[^&gt;]*[^/]&gt;)/g;
+                            const html = `
+                            &lt;div&gt;
+                                &lt;p&gt;Texto&lt;/p&gt;
+                                &lt;img src="imagem.jpg" /&gt;
+                                &lt;br /&gt;
+                                &lt;h1&gt;Título&lt;/h1&gt;
+                            &lt;/div&gt;
+                            `;
+                            const matches = [...html.matchAll(regex)];
+                            console.log(matches.map(match => match[1]));
+                            // Saída: ['div', 'p', 'h1']
+                        </code>
                     </pre>
 
                     <h3>Limitações da Regex</h3>
@@ -177,60 +176,54 @@
                     <h3>1. Usando DOMParser no Navegador</h3>
                     <p>Se você está trabalhando no front-end, o DOMParser pode transformar strings HTML em objetos manipuláveis:</p>
 
-                    <pre>
-                        <div class="exemplo">
-                            <code>
-                                const parser = new DOMParser();
-                                const html = `
-                                &lt;div&gt;
-                                    &lt;p&gt;Texto&lt;/p&gt;
-                                    &lt;img src="imagem.jpg" /&gt;
-                                    &lt;br /&gt;
-                                    &lt;h1&gt;Título&lt;/h1&gt;
-                                &lt;/div&gt;
-                                `;
-                                const doc = parser.parseFromString(html, 'text/html');
-                                const tags = [...doc.querySelectorAll('*')]
-                                .filter(el => el.tagName !== 'IMG' && el.tagName !== 'BR')
-                                .map(el => el.tagName.toLowerCase());
-                                console.log(tags);
-                                // Saída: ['div', 'p', 'h1']
-                            </code>
-                        </div>
+                    <pre class="exemplo">
+                        <code class="codigo"   id="codigo-problematico-3">
+                            const parser = new DOMParser();
+                            const html = `
+                            &lt;div&gt;
+                                &lt;p&gt;Texto&lt;/p&gt;
+                                &lt;img src="imagem.jpg" /&gt;
+                                &lt;br /&gt;
+                                &lt;h1&gt;Título&lt;/h1&gt;
+                            &lt;/div&gt;
+                            `;
+                            const doc = parser.parseFromString(html, 'text/html');
+                            const tags = [...doc.querySelectorAll('*')]
+                            .filter(el => el.tagName !== 'IMG' && el.tagName !== 'BR')
+                            .map(el => el.tagName.toLowerCase());
+                            console.log(tags);
+                            // Saída: ['div', 'p', 'h1']
+                        </code>
                     </pre>
 
                     <h3>2. Usando Cheerio (Node.js)</h3>
                     <p>Cheerio é uma biblioteca inspirada no jQuery para manipulação de HTML no back-end:</p>
 
-                    <pre>
-                        <div class="exemplo">
-                            <code>
-                                const cheerio = require('cheerio');
-                                const html = `
-                                &lt;div&gt;
-                                    &lt;p&gt;Texto&lt;/p&gt;
-                                    &lt;img src="imagem.jpg" /&gt;
-                                    &lt;br /&gt;
-                                    &lt;h1&gt;Título&lt;/h1&gt;
-                                &lt;/div&gt;
-                                `;
-                                const $ = cheerio.load(html);
-                                const tags = $('*')
-                                .not('img, br')
-                               section .map((i, el) => el.tagName)
-                                .get();
-                                console.log(tags);
-                                // Saída: ['div', 'p', 'h1']
-                            </code>
-                        </div>
+                    <pre class="exemplo">
+                        <code class="codigo">
+                            const cheerio = require('cheerio');
+                            const html = `
+                            &lt;div&gt;
+                                &lt;p&gt;Texto&lt;/p&gt;
+                                &lt;img src="imagem.jpg" /&gt;
+                                &lt;br /&gt;
+                                &lt;h1&gt;Título&lt;/h1&gt;
+                            &lt;/div&gt;
+                            `;
+                            const $ = cheerio.load(html);
+                            const tags = $('*')
+                            .not('img, br')
+                            section .map((i, el) => el.tagName)
+                            .get();
+                            console.log(tags);
+                            // Saída: ['div', 'p', 'h1']
+                        </code>
                     </pre>
 
                     <h3>3. Usando BeautifulSoup (Python)</h3>
                     <p>Para desenvolvedores Python, a biblioteca BeautifulSoup é excelente para parsing de HTML:</p>
-
-                    <pre>
-                        <div class="exemplo">
-                            <code>
+                        <pre class="exemplo">
+                            <code class = "codigo-problematico">
                                 from bs4 import BeautifulSoup
                                 const html = """
                                 &lt;div&gt;
@@ -245,9 +238,7 @@
                                 print(tags)
                                 # Saída: ['div', 'p', 'h1']
                             </code>
-                        </div>
-                    </pre>
-
+                        </pre>
                 </section>
 
                 <section>
@@ -256,44 +247,37 @@
                     <h3>1. Combine Regex Com Parsers</h3>
                     <p>Se você precisar de validações preliminares ou processamento rápido antes de usar um parser, combine regex com ferramentas robustas. Por exemplo, use regex para remover trechos irrelevantes antes do parsing:</p>
 
-                    <pre>
-                        <div class="exemplo">
-                            <code>
-                                const cleanHtml = html.replace(/&lt;script.*?&gt;.*?&lt;\/script&gt;/g, '');
-                                const doc = parser.parseFromString(cleanHtml, 'text/html');
-                            </code>
-                        </div>
+                    <pre class="exemplo">
+                        <code class="codigo" id="codigo-problematico-1">
+                            const cleanHtml = html.replace(/&lt;script.*?&gt;.*?&lt;\/script&gt;/g, '');
+                            const doc = parser.parseFromString(cleanHtml, 'text/html');
+                        </code>
                     </pre>
 
                     <h3>2. Trabalhe Com Regex Dinâmica</h3>
                     <p>Se você precisa filtrar ou capturar tags específicas, crie regex dinâmicas com base em parâmetros:</p>
 
-                    <pre>
-                        <div class="exemplo">
-                            <code>
-
-                                function createTagRegex(tag) {
-                                    return new RegExp(`&lt;${tag}[^&gt;]*&gt;(.*?)&lt;\/${tag}&gt;`, 'g');
-                                }
-                                const regex = createRegex('div');
-                                const content = '&lt;div&gt;Texto&lt;/div&gt;&lt;span&gt;Outro&lt;/span&gt;';
-                                console.log(content.match(regex));
-                                // Saída: ['&lt;div&gt;Texto&lt;/div&gt;']
-                            </code>
-                        </div>
+                    <pre class="exemplo">
+                        <code class="codigo"   id="codigo-problematico-4">
+                            function createTagRegex(tag) {
+                                return new RegExp(`&lt;${tag}[^&gt;]*&gt;(.*?)&lt;\/${tag}&gt;`, 'g');
+                            }
+                            const regex = createRegex('div');
+                            const content = '&lt;div&gt;Texto&lt;/div&gt;&lt;span&gt;Outro&lt;/span&gt;';
+                            console.log(content.match(regex));
+                            // Saída: ['&lt;div&gt;Texto&lt;/div&gt;']
+                        </code>
                     </pre>
 
                     <h3>3. Validação Simples de HTML</h3>
                     <p>Se você quer apenas verificar se um HTML básico é válido, use regex como filtro inicial. Por exemplo:</p>
 
-                    <pre>
-                        <div class="exemplo">
-                            <code>
-                                const isValidHtml = html => /^&lt;([a-zA-Z]+)&gt;.*&lt;\/\1&gt;$/.test(html);
-                                console.log(isValidHtml('&lt;div&gt;Texto&lt;/div&gt;')); // true
-                                console.log(isValidHtml('&lt;div&gt;&lt;p&gt;&lt;/div&gt;&lt;/p&gt;')); // false
-                            </code>
-                        </div>
+                    <pre class="exemplo" >
+                        <code class="codigo"  id="codigo-problematico-2">
+                            const isValidHtml = html => /^&lt;([a-zA-Z]+)&gt;.*&lt;\/\1&gt;$/.test(html);
+                            console.log(isValidHtml('&lt;div&gt;Texto&lt;/div&gt;')); // true
+                            console.log(isValidHtml('&lt;div&gt;&lt;p&gt;&lt;/div&gt;&lt;/p&gt;')); // false
+                        </code>
                     </pre>
 
                     <h3>4. Evite Reinventar a Roda</h3>
@@ -319,20 +303,18 @@
                 </section>
                 
                 <aside class="card-apoio">
-                    <form action="" role="representation">
-                        <fieldset role="presentation">
-                            <legend>Apoie a Ramos da Informática</legend>
-                            <div>
-                                <p>☕ <a href="#" class="apoio-titulo"><strong>Café com Deus Pai Vol. 6 - 2026: Porções Diárias de Amor</strong></a> oferece 365 mensagens diárias que convidam você a um encontro íntimo com Deus, fortalecendo a fé e nutrindo a alma.</p>
-                            </div>
+                    <fieldset role="presentation">
+                        <legend>Apoie a Ramos da Informática</legend>
+                        <div>
+                            <p>☕ <a href="#" class="apoio-titulo"><strong>Café com Deus Pai Vol. 6 - 2026: Porções Diárias de Amor</strong></a> oferece 365 mensagens diárias que convidam você a um encontro íntimo com Deus, fortalecendo a fé e nutrindo a alma.</p>
+                        </div>
 
-                            <div class="confira-div">
-                                <p>👉 <a href="" class="confira-na">Confira na Amazon .</a></p>
+                        <div class="confira-div">
+                            <p>👉 <a href="" class="confira-na">Confira na Amazon .</a></p>
 
-                                <p>Nas compras você contribui para manter o site no ar.</p>
-                            </div>
-                        </fieldset>
-                    </form>
+                            <p>Nas compras você contribui para manter o site no ar.</p>
+                        </div>
+                    </fieldset>
                 </aside>
                 
             </section>
@@ -342,7 +324,7 @@
     </main>
 
     <footer>
-        <a href="">Ramos de Souza J</a>
+        <a href="#" id="link-ramos">Ramos de Souza J</a>
 
         <div class="compartilhar" id="compartilhar-buttom">
             
