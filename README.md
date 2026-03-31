@@ -1,7 +1,8 @@
 <h1 align="center">Treinos e estudos</h1>
-Esse repositório é só para salvar meus treinos e estudos de programação com linguagens variadas, mas principalmente programação web
+<p>Esse repositório é só para salvar meus treinos e estudos de programação com linguagens variadas, mas principalmente programação web</p>
 
 <h2>Treinos</h2>
+<p>Esses são projetos feito sozinho. Eles são: clones de sites, Leadpages completos e até treinos diversos</p>
 
 <a href="https://devraimundo.github.io/Treinos-e-estudos/Treinos/Frontend%20projects/Site%20Nexcent/index.html">Nexcent site</a>
 
@@ -14,6 +15,7 @@ Esse repositório é só para salvar meus treinos e estudos de programação com
 <hr>
 
 <h2>Estudos</h2>
+<p>Esses são projetos desenvolvidos durante os meus cursos</p>
 
 <a href="https://devraimundo.github.io/Treinos-e-estudos/Estudos/Site%20do%20Android-CursoemV%C3%ADdeo/Desafio%201(10)/index.html">Site Android-CursoemVídeo</a>
 
