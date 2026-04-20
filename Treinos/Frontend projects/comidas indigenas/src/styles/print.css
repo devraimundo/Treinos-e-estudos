@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap');
+
+/* Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+strong{
+    color: rgb(87, 0, 0);
+}
+.green{
+    color: rgb(0, 100, 0);
+}
+.red{
+    color: rgb(100, 3, 3);
+}
+
+/* main style */
+main{
+    /* main style & global */
+    background-color: rgb(255, 247, 232) !important;
+    -webkit-print-color-adjust: exact; /* Para motores baseados em Webkit/Chrome */
+    print-color-adjust: exact;
+
+    -webkit-print-color-adjust: exact; /* Para motores baseados em Webkit/Chrome */
+    print-color-adjust: exact;
+    
+    p{
+        text-align: start;
+        font-size: 1.3em;
+        line-height: 30px;
+    }
+
+    section, footer{
+        width: 100%;
+        margin: auto;
+    }
+
+    /* header style */
+    header{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        border: 45px solid transparent;
+        border-image-source: url('../assets/img/ui/credits_fleur.png');
+        border-image-slice: 40;
+
+         height: 180px;
+
+        h1{
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            color: black;
+            font-family: Lugrasimo, cursive;
+        }
+
+        img{
+            width: 80px;
+            height: 80px;
+        }
+    }
+
+    /* nav style */
+    nav{
+        display: none;
+    }
+
+    /* sections style */
+    .sec-1, .sec-2, .sec-3{
+        padding-bottom: 1em;
+    }
+
+    .sec-1{
+        padding-top: 15px;
+
+        p:first-child{
+            &::first-letter{
+                font-size: 2rem;
+            }
+        }
+
+        img{
+            float: left;
+            width: 318.5px;
+            padding-right: 15px;
+        }
+    }
+    .sec-2{
+        aside{
+            margin: 20px 0 10px 0;
+            color: rgb(87, 0, 0);
+            font-weight: 600;
+        }
+
+        img{
+            float: right;
+            width: 318.5px;
+            padding-left: 15px;
+        }
+    }
+
+    /* main footer style */
+    footer{
+        padding-top: 20px;
+
+        p{
+            font-size: 1.2rem;
+            text-align: center;
+        }
+    }
+}
+
+/* footer style */
+body > footer{
+    display: none;
+}

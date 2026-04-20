@@ -1,0 +1,141 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap');
+
+/* Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+strong{
+    color: rgb(87, 0, 0);
+}
+.green{
+    color: rgb(0, 100, 0);
+}
+.red{
+    color: rgb(100, 3, 3);
+}
+
+header, nav{
+    display: flex;
+    align-items: center;
+}
+
+section{
+    img{
+        width: min(90vw, 310px);
+    }
+}
+
+/* main style */
+main{
+    /* main style & global */
+    background-image: linear-gradient(rgb(255, 243, 221), rgb(255, 247, 232));
+
+    p{
+        text-align: justify;
+        font-size: clamp(1rem, 5vw, 1.5rem);
+        line-height: max(2vh, 30.6px);
+        padding-bottom: 10px;
+    }
+
+    section, footer{
+        max-width: 42%;
+        margin: auto;
+    }
+
+    /* header style */
+    header{
+        justify-content: space-evenly;
+
+        border: clamp(20px, 6vw, 50px) solid transparent;
+        border-image-source: url('../assets/img/ui/credits_fleur.png');
+        border-image-slice: 40;
+
+        height: clamp(110px, 30vw, 260px);
+
+        h1{
+            font: normal normal bold clamp(1.2rem, 4.5vw, 4rem) Lugrasimo, cursive;
+            text-align: center;
+        }
+
+        img{
+            width: clamp(55px, 15vw, 180px);
+        }
+    }
+
+    /* nav style */
+    nav{
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        padding: 30px 0 30px 0;
+
+        img{
+            height: 50px;
+            width: 308px;
+        }
+
+        ul{
+            padding-bottom: 10px;
+            list-style: none;
+            text-align: center;
+
+            li{
+                display: inline-block;
+            }
+            
+            a{
+                text-decoration: none;
+                padding: 10px;
+            }
+        }
+    }
+
+    /* sections style */
+    .sec-1, .sec-2, .sec-3{
+        padding-bottom: 1.5em;
+    }
+    .sec-1{
+        padding-top: 50px;
+
+        p:first-child{
+            &::first-letter{
+                font-size: 3rem;
+            }
+        }
+
+        img{
+            float: left;
+            padding-right: 15px;
+        }
+    }
+    .sec-2{
+        aside{
+            margin: 20px 0 10px 0;
+            color: rgb(87, 0, 0);
+            font-weight: 550;
+        }
+
+        img{
+            padding-left: 15px;
+            float: right;
+        }
+    }
+
+    /* main footer style */
+    footer{
+        padding-top: 30px;
+
+        p{
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+        }
+    }
+}
+
+/* footer style */
+body > footer{
+    background-color: rgb(255, 247, 232);
+}
