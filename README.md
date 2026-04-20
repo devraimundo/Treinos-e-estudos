@@ -6,19 +6,19 @@
 
 <a href="https://devraimundo.github.io/Treinos-e-estudos/Treinos/Frontend%20projects/Site%20Nexcent/index.html">Nexcent site</a>
 
-<a href="https://devraimundo.github.io/Treinos-e-estudos/Treinos/Website%20clones/Copia%20do%20Site%20do%20Ramos%20da%20Inform%C3%A1tica%20sobre%20Regex/index.html">Ramos da Informática Regex Website Clone.</a>
+<a href="https://devraimundo.github.io/Treinos-e-estudos/Treinos/Website%20clones/Copia%20do%20Site%20do%20Ramos%20da%20Inform%C3%A1tica%20sobre%20Regex/index.html">Ramos da Informática Regex Website Clone (Not in English)</a>
 
 <a href="https://devraimundo.github.io/Treinos-e-estudos/Treinos/Frontend%20projects/Parallaxs%20simples/index.html">Simple Parallax Practice</a>
 
-<a href="https://devraimundo.github.io/Treinos-e-estudos/Treinos/Frontend%20projects/Site%20com%20tema%20de%20mar/index.html">Ocean Theme Website</a>
+<a href="https://devraimundo.github.io/Treinos-e-estudos/Treinos/Frontend%20projects/comidas%20indigenas/index.html">indigenous Brazilian cuisine (Not in English)</a>
 
 <hr>
 
 <h2>Estudos</h2>
 <p>Esses são projetos desenvolvidos durante os meus cursos</p>
 
-<a href="https://devraimundo.github.io/Treinos-e-estudos/Estudos/Site%20do%20Android-CursoemV%C3%ADdeo/Desafio%201(10)/index.html">Site Android-CursoemVídeo</a>
+<a href="https://devraimundo.github.io/Treinos-e-estudos/Estudos/Site%20do%20Android-CursoemV%C3%ADdeo/Desafio%201(10)/index.html">Site Android-CursoemVídeo (Not in English)</a>
 
-<a href="https://devraimundo.github.io/Treinos-e-estudos/Estudos/Site%20de%20cordeis-CursoemV%C3%ADdeo/index.html">Site cordéis-CursoemVídeo</a>
+<a href="https://devraimundo.github.io/Treinos-e-estudos/Estudos/Site%20de%20cordeis-CursoemV%C3%ADdeo/index.html">Site cordéis-CursoemVídeo (Not in English)</a>
 
-<a href="https://devraimundo.github.io/Treinos-e-estudos/Estudos/Site%20de%20Redes%20Sociais-CursoemV%C3%ADdeo/index.html">Site Social media-CursoemVídeo</a>
+<a href="https://devraimundo.github.io/Treinos-e-estudos/Estudos/Site%20de%20Redes%20Sociais-CursoemV%C3%ADdeo/index.html">Site Social media-CursoemVídeo (Not in English)</a>
